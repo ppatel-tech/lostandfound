@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item | Campus Lost & Found Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Campus Lost & Found Hub</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="report-lost.html">Report Lost</a>
+                <a href="browse-found.html">Browse Found</a>
+                <a href="report-found.html" class="active">Report Found</a>
+                <div class="user-actions">
+                    <button id="notification-btn" class="icon-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <button id="login-btn" class="btn btn-outline">Login</button>
+                </div>
+            </div>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="report-page">
+        <div class="container">
+            <h1>Report a Found Item</h1>
+            <p class="subtitle">Fill out the form below to report an item you found on campus. Help reunite it with its owner!</p>
+            
+            <form id="found-item-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="item-name">Item Name</label>
+                        <input type="text" id="item-name" required placeholder="e.g., Black Wireless Headphones">
+                    </div>
+                    <div class="form-group">
+                        <label for="item-category">Category</label>
+                        <select id="item-category" required>
+                            <option value="">Select a category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="books">Books</option>
+                            <option value="personal">Personal Items</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-location">Found Location</label>
+                    <div class="input-with-suggestions">
+                        <input type="text" id="item-location" required placeholder="e.g., Library Study Room 3">
+                        <div class="suggestions-dropdown">
+                            <div class="suggestion">Library</div>
+                            <div class="suggestion">Cafeteria</div>
+                            <div class="suggestion">Dorm Building A</div>
+                            <div class="suggestion">Computer Lab</div>
+                            <div class="suggestion">Gym</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-date">Date Found</label>
+                    <input type="date" id="item-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" required placeholder="Provide detailed description including brand, color, size, unique features, etc."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-image">Upload Image (Optional)</label>
+                    <input type="file" id="item-image" accept="image/*">
+                    <small>Max file size: 2MB</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="handover-instructions">Handover Instructions</label>
+                    <textarea id="handover-instructions" placeholder="Where and when can the owner pick up the item?"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-phone">Phone Number</label>
+                    <input type="tel" id="contact-phone">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Report Found Item</button>
+                    <button type="reset" class="btn btn-outline">Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Campus Lost & Found Hub</h3>
+                    <p>Helping students reunite with their lost belongings since 2023.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report-lost.html">Report Lost</a></li>
+                        <li><a href="browse-found.html">Browse Found</a></li>
+                        <li><a href="report-found.html">Report Found</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> help@campuslostfound.edu</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Student Services Building, Room 205</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Campus Lost & Found Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set default date to today
+        document.getElementById('item-date').valueAsDate = new Date();
+        
+        // Location suggestions (existing code remains the same)
+        const locationInput = document.getElementById('item-location');
+        const suggestions = document.querySelector('.suggestions-dropdown');
+        
+        locationInput.addEventListener('focus', function() {
+            suggestions.style.display = 'block';
+        });
+        
+        locationInput.addEventListener('blur', function() {
+            setTimeout(() => {
+                suggestions.style.display = 'none';
+            }, 200);
+        });
+        
+        document.querySelectorAll('.suggestion').forEach(suggestion => {
+            suggestion.addEventListener('mousedown', function() {
+                locationInput.value = this.textContent;
+                suggestions.style.display = 'none';
+            });
+        });
+        
+        // Form submission - UPDATED
+        document.getElementById('found-item-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const itemData = {
+                id: Date.now(), // Unique ID
+                title: document.getElementById('item-name').value,
+                category: document.getElementById('item-category').value,
+                status: "found",
+                location: document.getElementById('item-location').value,
+                date: document.getElementById('item-date').value,
+                description: document.getElementById('item-description').value,
+                contact: document.getElementById('contact-email').value,
+                reportedBy: "currentUser", // You can replace with actual user if logged in
+                handoverInstructions: document.getElementById('handover-instructions').value
+            };
+            
+            // Save to database
+            const db = JSON.parse(localStorage.getItem('lostFoundDB')) || { items: [] };
+            db.items.push(itemData);
+            localStorage.setItem('lostFoundDB', JSON.stringify(db));
+            
+            // Show success modal
+            showSuccessModal(
+                'Item Reported!', 
+                'The found item has been reported successfully. We\'ll notify you if the owner contacts you.',
+                'Return Home',
+                'Report Another Item'
+            );
+        });
+        
+        function showSuccessModal(title, message, primaryBtnText, secondaryBtnText = null) {
+            const modalContent = `
+                <div class="success-modal">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>${title}</h2>
+                    <p>${message}</p>
+                    <div class="success-actions">
+                        <button class="btn btn-primary close-success">${primaryBtnText}</button>
+                        ${secondaryBtnText ? `
+                        <button class="btn btn-outline stay-on-page">${secondaryBtnText}</button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal active';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    ${modalContent}
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            modal.querySelector('.close-success').addEventListener('click', () => {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.remove();
+                    window.location.href = 'index.html';
+                }, 300);
+            });
+            
+            if (secondaryBtnText) {
+                modal.querySelector('.stay-on-page').addEventListener('click', () => {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.remove();
+                        document.getElementById('found-item-form').reset();
+                        document.getElementById('item-date').valueAsDate = new Date();
+                    }, 300);
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
