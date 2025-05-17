@@ -38,7 +38,7 @@ function initDatabase() {
               date: "2023-05-14",
               description: "Calculus 3rd Edition by James Stewart. Found on a desk after class.",
               contact: "jane.smith@example.com",
-              image: "assets/calculas_book.jpg",
+              image: "assets/calculas.jpg",
               reportedBy: "user2"
           },
           {
