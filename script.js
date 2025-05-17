@@ -26,7 +26,7 @@ function initDatabase() {
               date: "2023-05-15",
               description: "Black Sony wireless headphones with noise cancellation. Left them on the table.",
               contact: "john.doe@example.com",
-              image: "1/assets/headphones.jpg",
+              image: "assets/headphones.jpg",
               reportedBy: "user1"
           },
           {
@@ -38,7 +38,7 @@ function initDatabase() {
               date: "2023-05-14",
               description: "Calculus 3rd Edition by James Stewart. Found on a desk after class.",
               contact: "jane.smith@example.com",
-              image: "1\assets\calculas_book.jpeg",
+              image: "assets\calculas_book.jpeg",
               reportedBy: "user2"
           },
           {
