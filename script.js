@@ -29,18 +29,7 @@ function initDatabase() {
               image: "assets/headphones.jpg",
               reportedBy: "user1"
           },
-          {
-              id: 2,
-              title: "Calculus Textbook",
-              category: "books",
-              status: "found",
-              location: "Math Building - Room 205",
-              date: "2023-05-14",
-              description: "Calculus 3rd Edition by James Stewart. Found on a desk after class.",
-              contact: "jane.smith@example.com",
-              image: "assets/calculus.jpg",
-              reportedBy: "user2"
-          },
+        
           {
               id: 3,
               title: "Student ID Card",
